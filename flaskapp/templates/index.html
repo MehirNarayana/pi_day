@@ -1,0 +1,28 @@
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block styles %}
+	{{super()}}
+	<link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Pi day!</h1>
+
+<div class="tap">
+
+  <form class="form-number" method="POST" action="#">
+		<p> {{number_result}} </p>
+		<p> {{name}} </p>
+		<p> {{date}} </p>
+		{{ form.hidden_tag() }}
+	  {{ wtf.form_field(form.number) }}
+		<button class="btn btn-lg btn-primary btn-blockid" id=process_input" type="submit">Submit</button>
+	</form>
+
+</div>
+{% endblock %}
